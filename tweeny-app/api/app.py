@@ -93,15 +93,41 @@ def login():
         print(data)
         for i in user_data:
             if i['email'] == data['email'] and i['password'] == data['password']:
-                encode = jwt.encode(i['email'], key, algorithm="HS256")
-
-                return {"msg":"Success"}
+                encode = jwt.encode(i, key, algorithm="HS256")
+                print(encode)
+                return {"msg":"Success",'access_token':encode}
 
     return {"msg":"Invalid Credential"} 
         
         
     # print(user_data)
     # return "got it"
+
+@app.route("/api/users/my-profile", methods=["GET"])
+@cross_origin()
+def my_profile():
+    if request.method =="GET":
+        access_token = request.args.get('access_token')
+        print(type(access_token))
+
+        try:
+            decode = jwt.decode(access_token, key, algorithms="HS256")
+            email = decode['email']
+            for i in user_data:
+                if i["email"] == email:
+                    return {'msg':"Welcome {}".format(email)}
+        except Exception as e:
+            return {"msg":str(e)}
+
+        # print(decode)
+       
+        
+    
+
+        # return {"access_token":access_token}
+    # return {"msg": "Please have a valid request"}
+
+
 
 '''# Backend APIs
 
