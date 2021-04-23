@@ -22,8 +22,6 @@ at the same time
 #### Port No Flask Api : `5000`
 ## FLask-React Application
 
-<h3>The twees consist of two folder</h3>:
-      1. `tweeny-app` : Consist of Flask API's
-      2. `my-app`     : Consist of React (JSX) File
+
       
 
