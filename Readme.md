@@ -20,7 +20,6 @@
 at the same time
 #### Port No React App : `3000` 
 #### Port No Flask Api : `5000`
-## FLask-React Application
 
 
       
