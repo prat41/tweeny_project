@@ -23,4 +23,3 @@ at the same time
 
 
       
-## Create table `places` and `events`
